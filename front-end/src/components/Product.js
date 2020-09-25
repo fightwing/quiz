@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image,Icon,Button} from 'semantic-ui-react'
+import {Image,Button} from 'semantic-ui-react'
 import Coke from '../image/Coke.png';
 
 
@@ -22,9 +22,7 @@ class Product extends React.Component{
             <Image src={Coke} size='small'></Image>
             <div>{this.state.name}</div>
             <div>单价: ${this.state.price}元/${this.state.unit}</div>
-            <Icon name="plus cart" />
-            <Icon  name='users' />
-            <Button> <Icon name="plus cart" /> </Button>
+            <Button> 下订单 </Button>
 
         </div>
     }
