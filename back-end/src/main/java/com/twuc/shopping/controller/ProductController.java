@@ -4,6 +4,7 @@ import com.twuc.shopping.po.Product;
 import com.twuc.shopping.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,5 +29,10 @@ public class ProductController {
        }else {
            return ResponseEntity.badRequest().body("添加失败");
        }
+    }
+
+    @GetMapping("/products")
+    public ResponseEntity getProducts(){
+        return ResponseEntity.ok(productService.getProducts());
     }
 }

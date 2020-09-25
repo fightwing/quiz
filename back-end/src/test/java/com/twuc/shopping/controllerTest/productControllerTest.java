@@ -11,7 +11,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -33,6 +37,15 @@ public class productControllerTest {
         String jsonString = objectMapper.writeValueAsString(product);
         mockMvc.perform(post("/product").content(jsonString).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
 
+    @Test
+    void should_get_productList() throws Exception {
+        mockMvc.perform(get("/products")).andExpect(status().isOk())
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[0].id",is(1)))
+                .andExpect(jsonPath("$[0].name",is(("Coke"))))
+                .andExpect(jsonPath("$[0].price",is(4.00)))
+                .andExpect(jsonPath("$[0].unit",is("瓶")));
     }
 }
