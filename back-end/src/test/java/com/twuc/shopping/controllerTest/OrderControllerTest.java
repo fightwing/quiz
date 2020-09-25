@@ -13,8 +13,7 @@ import java.math.BigDecimal;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,5 +47,10 @@ public class OrderControllerTest {
                 .andExpect(jsonPath("$[0].price",is(4.00)))
                 .andExpect(jsonPath("$[0].unit",is("瓶")))
                 .andExpect(jsonPath("$[0].productId",is(1)));
+    }
+
+    @Test
+    void should_delete_order_by_id() throws Exception {
+        mockMvc.perform(delete("/1")).andExpect(status().isOk());
     }
 }

@@ -40,4 +40,8 @@ public class OrderService {
     public List<Order> getOrders(){
        return orderRepository.findAll();
     }
+
+    public void deleteOrder(int id){
+        orderRepository.deleteById(id);
+    }
 }
