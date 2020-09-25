@@ -4,6 +4,8 @@ import com.twuc.shopping.po.Order;
 import com.twuc.shopping.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Boyu Yuan
  * @date 2020/9/25 16:20
@@ -33,5 +35,9 @@ public class OrderService {
         }else {
             return false;
         }
+    }
+
+    public List<Order> getOrders(){
+       return orderRepository.findAll();
     }
 }
