@@ -29,4 +29,13 @@ public class Order {
     private BigDecimal price;
     private int number;
     private String unit;
+    private int productId;
+
+    public Order(String name, BigDecimal price, int number, String unit, int productId) {
+        this.name = name;
+        this.price = price;
+        this.number = number;
+        this.unit = unit;
+        this.productId = productId;
+    }
 }

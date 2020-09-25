@@ -1,5 +1,6 @@
 package com.twuc.shopping.service;
 
+import com.twuc.shopping.po.Order;
 import com.twuc.shopping.po.Product;
 import com.twuc.shopping.repository.ProductRepository;
 import org.springframework.stereotype.Service;
@@ -26,4 +27,13 @@ public class ProductService {
     public List<Product> getProducts(){
         return productRepository.findAll();
     }
+
+//    public Boolean findOrderByProductId(Order order){
+//        Product product = productRepository.findById(order.getProductId()).get();
+//        if (product != null){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
 }
