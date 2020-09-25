@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 /**
  * @author Boyu Yuan
@@ -25,8 +26,14 @@ public class Product {
     @GeneratedValue
     private int id;
     private String name;
-    private int price;
+    private BigDecimal price;
     private String unit;
     private String url;
 
+    public Product(String name, BigDecimal price, String unit, String url) {
+        this.name = name;
+        this.price = price;
+        this.unit = unit;
+        this.url = url;
+    }
 }
