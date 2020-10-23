@@ -53,3 +53,4 @@ getOrders(){
         );
     }
 }
+export default Order;

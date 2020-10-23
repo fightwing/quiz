@@ -1,17 +1,25 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
-import { Icon} from 'semantic-ui-react';
-import Products from "./Products";
-import Order from "./Order";
-import AddProduct from "./AddProduct";
+import { NavLink } from "react-router-dom";
 
 
 class Header extends React.Component {
-
-
   render() {
     return (
-      <div></div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+                <NavLink to="/">商城</NavLink>
+            </li>
+            <li>
+                <NavLink to="/order">订单</NavLink>
+            </li>
+            <li>
+                <NavLink to="/addProduct">添加商品</NavLink>
+            </li>
+          </ul>
+        </nav>
+  </header>
     )
   }
 }
