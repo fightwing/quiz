@@ -20,15 +20,15 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @PostMapping("/order")
-    public ResponseEntity addOrder(@RequestBody Order order){
-        if (orderService.findOrderByProductId(order)){
-            orderService.updateOrder(order);
-        }else {
-            orderService.addOrderFirstTime(order);
-        }
-        return ResponseEntity.ok("成功加入订单");
-    }
+//    @PostMapping("/order")
+//    public ResponseEntity addOrder(@RequestBody Order order){
+//        if (orderService.findOrderByProductId(order)){
+//            orderService.updateOrder(order);
+//        }else {
+//            orderService.addOrderFirstTime(order);
+//        }
+//        return ResponseEntity.ok("成功加入订单");
+//    }
 
     @GetMapping("/orders")
     public ResponseEntity getOrders(){

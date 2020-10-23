@@ -5,11 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.math.BigDecimal;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Boyu Yuan
@@ -25,17 +22,8 @@ public class Order {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
-    private BigDecimal price;
-    private int number;
-    private String unit;
-    private int productId;
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    private List<OrderInfo> orderInfoList;
+    private int totalPrice;
 
-    public Order(String name, BigDecimal price, int number, String unit, int productId) {
-        this.name = name;
-        this.price = price;
-        this.number = number;
-        this.unit = unit;
-        this.productId = productId;
-    }
 }

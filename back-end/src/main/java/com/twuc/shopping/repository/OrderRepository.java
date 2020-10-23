@@ -12,6 +12,4 @@ import java.util.List;
 public interface OrderRepository extends CrudRepository<Order,Integer> {
     @Override
     List<Order> findAll();
-
-    Order findByProductId(int id);
 }

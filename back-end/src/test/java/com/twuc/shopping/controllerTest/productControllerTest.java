@@ -32,7 +32,7 @@ public class productControllerTest {
     @Test
     void should_add_product_succeed() throws Exception {
         BigDecimal p =new BigDecimal("4.00");
-        Product product = new Product("Coke",p,"瓶","D:/TWUC-QUIZ/front-end/src/image/Coke.png");
+        Product product = new Product("Coke",p,"瓶","http://pic.616pic.com/ys_bnew_img/00/13/20/UmirFMx66v.jpg");
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(product);
         mockMvc.perform(post("/product").content(jsonString).contentType(MediaType.APPLICATION_JSON))
