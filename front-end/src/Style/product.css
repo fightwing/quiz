@@ -1,0 +1,11 @@
+.product{
+    width: 30%;
+    height: 30%;
+}
+
+.products{
+    width: 700px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+}

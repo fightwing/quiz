@@ -1,7 +1,6 @@
 import React from 'react'
 import {Image,Button} from 'semantic-ui-react'
-import Coke from '../image/Coke.png';
-
+import '../Style/product.css'
 
 class Product extends React.Component{
     constructor(props){
@@ -18,13 +17,14 @@ class Product extends React.Component{
     
 
     render(){
-        return <div>
-            <Image src={Coke} size='small'></Image>
-            <div>{this.state.name}</div>
-            <div>单价: ${this.state.price}元/${this.state.unit}</div>
-            <Button> 下订单 </Button>
-
+        return (
+            <div className= "product">
+                <Image src={this.state.url} size='small' style={{width:80,height:120}}></Image>
+                <div>{this.state.name}</div>
+                <div>单价: {this.state.price}元/{this.state.unit}</div>
+                <Button> 下订单 </Button>
         </div>
+        );
     }
 }
 export default Product;

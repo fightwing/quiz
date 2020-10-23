@@ -1,36 +1,31 @@
 import React from 'react';
 import Product from './Product';
-
+import '../Style/product.css'
 
 const URL = "http://localhost:8080/products"
 class Products extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            Products:[],
+            Products:[]
         }
     }
 
     componentDidMount() {
-        async function fetchData(url) {
-          const result = await fetch(url).then((response) => response.json());
-          return result;
-        }
-        fetchData(URL)
-          .then((result) => {
+        fetch(URL,{method:'GET'})
+          .then(response => response.json())
+          .then(result => {
             this.setState({
               Products: result,
-            });
-            console.log(this.state.Products)
-          })
-          .catch((error) => {
+            })})
+          .catch(error => {
             console.log(error);
-          });
+          })
       }
 
       render() {
           return (
-              <div>
+              <div className= "products">
                   {this.state.Products.map((product)=>(
                       <Product
                           id={product.id}
@@ -44,9 +39,7 @@ class Products extends React.Component{
               </div>
           );
       }
-
-
-    }
+}
 
       
 
