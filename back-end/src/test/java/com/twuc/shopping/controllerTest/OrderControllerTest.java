@@ -28,15 +28,15 @@ public class OrderControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Test
-    void should_add_Order_succeed() throws Exception {
-        BigDecimal p =new BigDecimal("4.00");
-        Order order = new Order("Coke",p,2,"瓶",1);
-        ObjectMapper objectMapper = new ObjectMapper();
-        String jsonString = objectMapper.writeValueAsString(order);
-        mockMvc.perform(post("/order").content(jsonString).contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    void should_add_Order_succeed() throws Exception {
+//        BigDecimal p =new BigDecimal("4.00");
+//        Order order = new Order("Coke",p,2,"瓶",1);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        String jsonString = objectMapper.writeValueAsString(order);
+//        mockMvc.perform(post("/order").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk());
+//    }
 
     @Test
     void should_get_Orders() throws Exception {

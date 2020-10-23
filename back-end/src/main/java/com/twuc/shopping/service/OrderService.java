@@ -22,20 +22,7 @@ public class OrderService {
         orderRepository.save(order);
     }
 
-//    public void updateOrder(Order order){
-//       Order order1 = orderRepository.findByProductId(order.getProductId());
-//       order1.setNumber(order1.getNumber()+order.getNumber());
-//       orderRepository.save(order1);
-//    }
-//
-//    public Boolean findOrderByProductId(Order order){
-//        Order order1 = orderRepository.findByProductId(order.getProductId());
-//        if (order1 != null){
-//            return true;
-//        }else {
-//            return false;
-//        }
-//    }
+
 
     public List<Order> getOrders(){
        return orderRepository.findAll();
